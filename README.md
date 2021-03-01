@@ -23,7 +23,7 @@
 ## 設計書
 
 ## チャレンジ要素一覧
-[チャレンジ要素一覧はこちら](https://docs.google.com/spreadsheets/d/1Q-JlKbAaE3wZQTrAByrOE_lCGELuN4EkS-8xVpNynds/edit#gid=0)
+[チャレンジ要素一覧はこちら](https://docs.google.com/spreadsheets/d/1Q-JlKbAaE3wZQTrAByrOE_lCGELuN4EkS-8xVpNynds/edit?usp=sharing)
 
 ## 開発環境
 - OS：Linux(CentOS)
