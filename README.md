@@ -16,13 +16,13 @@
 65歳以上の女性
 
 ### 主な利用シーン
-- おばあちゃん達の趣味を発信する際
+- おばあちゃん達の趣味を発信する時
 - 友達と情報交換
 - 新しい友達や趣味を見つけたい時
 
 ## 設計書
 
-## チャレンジ要素一覧
+## 機能一覧
 [チャレンジ要素一覧はこちら](https://docs.google.com/spreadsheets/d/1Q-JlKbAaE3wZQTrAByrOE_lCGELuN4EkS-8xVpNynds/edit?usp=sharing)
 
 ## 開発環境
