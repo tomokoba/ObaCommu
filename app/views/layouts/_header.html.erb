@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <%= link_to "ObaCommu", root_path, class: "navbar__brand navbar__mainLogo" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-md-auto align-items-center">
+          <% if user_signed_in? %>
+            <li><%= link_to " 投稿する", "#", class: "fas fa-plus-circle nav-link text-dark" %></li>
+            <li><%= link_to " マイページ", "#", class: "fas fa-home nav-link text-dark" %></li>
+            <li><%= link_to " 会員一覧", "#", class: "fas fa-users nav-link text-dark" %></li>
+            <li><%= link_to " 投稿一覧", "#",class: "fas fa-camera nav-link text-dark" %></li>
+            <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-dark" %></li>
+          <% else %>
+            <li><%= link_to " トップページ", root_path, class: "fas fa-home nav-link text-dark" %></li>
+            <li><%= link_to " 会員登録", new_user_registration_path, class: "fas fa-user-plus nav-link text-dark" %></li>
+            <li><%= link_to " 会員様はこちら", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-dark" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
