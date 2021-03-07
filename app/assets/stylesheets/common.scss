@@ -3,3 +3,15 @@ body {
   font-size: 16px;
   color: #262626;
 }
+
+.btn-shadow {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-bottom: solid 4px #627295;
+}
+.btn-shadow:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}

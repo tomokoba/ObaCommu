@@ -6,7 +6,7 @@
         <p class="font-weight-bold">おばあちゃんの趣味を世界に広めよう</p>
       </div>
       <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-      <%#= render "devise/shared/error_messages", resource: resource %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="form-group mb-4">
         <%= f.label "お名前の入力", class: "font-weight-bold" %><br />
@@ -30,7 +30,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "会員登録をする", class: "btn btn-primary w-100" %>
+        <%= f.submit "会員登録をする", class: "btn btn-primary btn-shadow w-100" %>
       </div>
     <% end %>
 
