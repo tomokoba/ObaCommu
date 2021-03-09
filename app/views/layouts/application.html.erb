@@ -15,13 +15,13 @@
       <%= render 'layouts/header' %>
 
       <% if flash[:notice] %>
-        <div class="alert alert-info">
+        <div class="alert alert-info mb-0">
           <%= flash[:notice] %>
         </div>
       <% end %>
 
       <% if flash[:alert] %>
-        <div class="alert alert-danger">
+        <div class="alert alert-danger mb-0">
           <%= flash[:alert] %>
         </div>
       <% end %>

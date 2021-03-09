@@ -1,5 +1,21 @@
-<h1>ユーザー一覧ページ</h1>
-<% @users.each do |user| %>
-  <%= user.name %>
-  <%= user.email %>
-<% end %>
+<div class="topic">
+  <div class="container">
+    <h1 class="mt-4 topic-font">会員一覧ページ</h1>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="card col-md-3">
+        <%= attachment_image_tag user, :profile_image, fallback: "no-image.jpg", size:"220x220", class: "d-block mx-auto" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= truncate(user.name, length: 10) %></h5>
+          <p class="card-text"><%= truncate(user.profile, length: 20) %></p>
+          <%= link_to "詳細をみる", user_path(user), class: "btn btn-primary btn-shadow btn-lg d-block mx-auto" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
