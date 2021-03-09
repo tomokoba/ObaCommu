@@ -7,10 +7,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-md-auto align-items-center">
           <% if user_signed_in? %>
-            <li><%= link_to " 投稿する", "#", class: "fas fa-plus-circle nav-link text-dark" %></li>
+            <li><%= link_to " 投稿する", new_post_path, class: "fas fa-plus-circle nav-link text-dark" %></li>
             <li><%= link_to " マイページ", user_path(current_user), class: "fas fa-home nav-link text-dark" %></li>
             <li><%= link_to " 会員一覧", users_path, class: "fas fa-users nav-link text-dark" %></li>
-            <li><%= link_to " 投稿一覧", "#",class: "fas fa-camera nav-link text-dark" %></li>
+            <li><%= link_to " 投稿一覧", posts_path, class: "fas fa-camera nav-link text-dark" %></li>
             <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-dark" %></li>
           <% else %>
             <li><%= link_to " トップページ", root_path, class: "fas fa-home nav-link text-dark" %></li>

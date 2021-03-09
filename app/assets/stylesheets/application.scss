@@ -20,7 +20,6 @@
  @import "common";
  @import "users/devise";
  @import "layouts/header";
+ 
+ @import "posts";
 
-body {
-  background-image: image-url("asia.jpg");
-}

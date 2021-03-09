@@ -1,0 +1,48 @@
+<div class="topic">
+  <div class="container">
+    <h1 class="mt-4 topic-font">投稿一覧ページ</h1>
+  </div>
+</div>
+
+<div class="card-deck mr-0">
+<% @posts.each do |post| %>
+  <div class="col-lg-3 mt-3">
+    <div class="card-wrap">
+      <div class="card">
+        <div class="card-header align-items-center d-flex">
+          <%= link_to user_path(post.user), class: "black-color no-text-decoration" do %>
+            <%= attachment_image_tag post.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %>
+            <strong><%= post.user.name %></strong>
+          <% end %>
+        </div>
+
+        <%= link_to post_path(post), class: "black-color no-text-decoration" do %>
+        <% post.photos.each do |photo| %>
+          <%= attachment_image_tag photo, :image, size:"250x250", class: "d-block mx-auto" %>
+        <% end %>
+        <% end %>
+        <div class="card-body">
+          <div class="row parts">
+            <%= link_to "", "#", class: "fas fa-heart" %>
+            <%= link_to "", "#", class: "fas fa-comment" %>
+          </div>
+          <div><strong>「いいね！」10件</strong></div>
+          <div>
+            <span><strong><%= post.user.name %></strong></span>
+            <span><%= post.title %></span>
+            <%= link_to time_ago_in_words(post.created_at).upcase + "前", "#", class: "post-time no-text-decoration" %>
+            <hr>
+            <div class="row parts">
+              <form action="#" class="w-100">
+                <div>
+                  <textarea class="form-control comment-input border-0" placeholder="コメント..." rows="1"></textarea>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>

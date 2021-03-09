@@ -1,0 +1,16 @@
+<div class="topic">
+  <div class="container">
+    <h1 class="mt-4 topic-font">新規投稿ページ</h1>
+  </div>
+</div>
+
+<%= form_with model: @post do |f| %>
+  <%= f.label "タイトル" %>
+  <%= f.text_field :title %>
+  <%= f.label "説明文" %>
+  <%= f.text_field :caption %>
+  <%= f.fields_for :photos do |i| %>
+    <%= i.file_field :image %>
+  <% end %>
+  <%= f.submit "投稿", class: "btn btn-primary" %>
+<% end %>
