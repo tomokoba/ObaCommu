@@ -1,0 +1,12 @@
+
+<% post.comments.each do |comment| %>
+  <div>
+    <strong><%= comment.user.name %></strong>
+    <%= comment.comment %>
+    <% if comment.user == current_user %>
+      <%= link_to post_comment_path(comment.post, comment), method: :delete, remote: true, class: "delete-comment" do %>
+        <div class="fas fa-trash-alt no-underline-danger"></div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

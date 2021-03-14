@@ -1,2 +1,64 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="topic">
+  <div class="container">
+    <h1 class="topic-font my-4">投稿詳細ページ</h1>
+  </div>
+</div>
+
+<div class="col-md-10 col-md-offset-1 mx-auto postShow-wrap">
+  <div class="row post-wrap px-0">
+    <div class="col-md-7">
+      <div class="card-left">
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <div id="slider">
+        <% @post.photos.each do |image| %>
+          <%= attachment_image_tag image, :image, class: "card-img-top" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 px-0">
+      <div class="card-right">
+        <div class="card-right-comment">
+          <div class="card-right-name">
+            <%= link_to user_path(@post.user), class: "no-underline" do %>
+              <%= attachment_image_tag @post.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %>
+            <% end %>
+            <%= link_to user_path(@post.user), class: "no-underline post-user-name", title: @post.user.name do %>
+              <strong><%= truncate(@post.user.name, length: 10) %></strong>
+            <% end %>
+
+            <!--閲覧者がcurrent_userなら投稿編集ページへのボタンを表示-->
+            <% if @post.user == current_user %>
+              <%= link_to "投稿内容の編集", edit_post_path(@post), class: "btn btn-primary btn-shadow btn-md ml-auto mx-0 my-auto" %>
+            <% end %>
+
+            <!--閲覧者がcurrent_user以外なら会員詳細ページへのボタンを表示-->
+            <% if @post.user != current_user %>
+              <%= link_to "会員の詳細", user_path(@post.user), class: "btn btn-primary btn-shadow btn-md ml-auto mx-0 my-auto" %>
+            <% end %>
+          </div>
+
+          <div class="m-2 card-right-title">
+            <h5 class="card-title mb-0"><%= @post.title %></h5>
+          </div>
+          <div class="m-2">
+            <%= @post.caption %>
+          </div>
+          <div class="comments m-2">
+            <%= render "comments/comment", post: @post %>
+          </div>
+        </div>
+        <div class="m-2 like-btn_<%= @post.id %>"><%= render "likes/like-btn", post: @post %></div>
+        <div class="m-2"><%= link_to "いいね一覧", post_likes_path(@post.id) %></div>
+        <div class="m-2 post-time"><%= time_ago_in_words(@post.created_at).upcase %>前</div>
+        <hr>
+        <div class="new-comment">
+          <%= form_with(model:[@post, @comment], remote: true) do |f| %>
+            <%= f.text_field :comment, class: "form-control", placeholder: "コメント" %>
+            <div class="text-right mt-2"><%= f.submit "送信する", class: "btn btn-primary btn-shadow" %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

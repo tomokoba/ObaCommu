@@ -1,0 +1,25 @@
+<div class="topic">
+  <div class="container">
+    <h1 class="topic-font my-4">いいね一覧ページ</h1>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 mx-auto text-center">
+      <table class="table">
+        <tr>
+          <th></th>
+          <th>会員名</th>
+          <th>フォロー</th>
+        </tr>
+          <% @post_for_likes.each do |like| %>
+            <tr>
+              <td><%= attachment_image_tag like.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %></td>
+              <td><%= like.user.name %></td>
+              <td>フォローボタン</td>
+            </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
+</div>

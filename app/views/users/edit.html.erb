@@ -1,6 +1,6 @@
 <div class="topic">
   <div class="container">
-    <h1 class="mt-4 topic-font">会員編集ページ</h1>
+    <h1 class="topic-font my-4">会員編集ページ</h1>
   </div>
 </div>
 
@@ -45,7 +45,7 @@
         <%= f.submit "編集を完了する", class: "btn btn-primary btn-shadow w-100" %>
       </div>
     <% end %>
-    <div class="mt-3">退会をご希望の方はこちら → <%= link_to "退会する", confirm_unsubscribe_path(current_user) %></div>
+    <div class="mt-3">退会をご希望の方はこちら → <%= link_to "退会する", confirm_unsubscribe_path(current_user), class: "no-underline-danger" %></div>
     </div>
   </div>
 </div>

@@ -60,7 +60,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   def after_sign_up_path_for(resource)
-    flash[:notice] = "会員登録が完了しました。"
     user_path(current_user)
   end
   

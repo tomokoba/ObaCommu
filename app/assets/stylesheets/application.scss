@@ -20,6 +20,16 @@
  @import "common";
  @import "users/devise";
  @import "layouts/header";
- 
- @import "posts";
 
+ @import "posts";
+ @import "likes";
+
+.slick-next {
+    right: 10px;
+    z-index: 100;
+ }
+
+.slick-prev {
+    left: 10px;
+  z-index: 100;
+ }
