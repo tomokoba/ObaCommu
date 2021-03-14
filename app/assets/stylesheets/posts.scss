@@ -1,0 +1,45 @@
+// .card-wrapper {
+// display: flex;
+// }
+
+.profile_image_icon {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.card-right {
+  padding: 20px;
+}
+
+.card-right-name {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E4D7D5;
+  display: flex;
+}
+
+.card-right-title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E4D7D5;
+}
+
+.card-right-comment {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E4D7D5;
+  height: 320px;
+  overflow: auto;
+}
+
+.postShow-wrap {
+  border: 1px solid #E4D7D5;
+  margin: 40px;
+  Background-color: #fff;
+}
+
+.post-user-name {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  margin-right: 10px;
+}

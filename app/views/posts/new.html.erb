@@ -1,0 +1,29 @@
+<div class="topic">
+  <div class="container">
+    <h1 class="topic-font my-4">新規投稿ページ</h1>
+  </div>
+</div>
+
+<div class="main">
+  <div class="card devise-card">
+    <div class="form-wrap">
+      <%= form_with model: @post, local: true do |f| %>
+        <div class="form-group mb-4">
+          <%= f.label "タイトル", class: "font-weight-bold" %></br>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group mb-4">
+        <%= f.label "説明文", class: "font-weight-bold" %></br>
+        <%= f.text_field :caption, class: "form-control" %>
+        </div>
+        <div class="form-group mb-4">
+        <%= f.label "画像", class: "font-weight-bold" %>（必須）複数選択可</br>
+        <%= f.attachment_field :photos_images, multiple: true %>
+        </div>
+        <div class="actions">
+        <%= f.submit "投稿する", class: "btn btn-primary btn-shadow w-100" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

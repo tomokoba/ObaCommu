@@ -5,6 +5,30 @@ body {
   color: #262626;
 }
 
+footer {
+  margin-top: auto;
+  background-color: #f9d1d4;
+}
+
+.no-underline {
+  text-decoration:none !important;
+  color: #262626;
+}
+
+.no-underline:hover {
+  color: #262626;
+  opacity: 0.8;
+}
+
+.no-underline-danger {
+  text-decoration:none !important;
+  color: #262626;
+}
+
+.no-underline-danger:hover {
+  color: #DD3444;
+}
+
 .btn-shadow {
   display: inline-block;
   padding: 0.5em 1em;

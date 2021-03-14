@@ -26,13 +26,11 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    flash[:notice] = "ログインに成功しました。"
     users_path
     # 後ほどposts_pathに変更する
   end
 
   def after_sign_out_path_for(resource)
-    flash[:notice] = "ログアウトしました。"
     root_path
   end
 
