@@ -14,9 +14,12 @@
         </tr>
           <% @post_for_likes.each do |like| %>
             <tr>
-              <td><%= attachment_image_tag like.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %></td>
-              <td><%= like.user.name %></td>
-              <td>フォローボタン</td>
+              <td class="pt-3"><%= attachment_image_tag like.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %></td>
+              <td class="align-middle"><%= like.user.name %></td>
+              <td class="pt-0 pb-3">
+                <!--会員フォローボタン-->
+        　　      <%= render "relationships/follow_button", user: @user %>
+              </td>
             </tr>
           <% end %>
       </table>
