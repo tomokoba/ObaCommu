@@ -1,0 +1,35 @@
+<div class="topic">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <h1 class="topic-font my-4">フォロワー</h1>
+      </div>
+      <div class="col-md-9 my-auto">
+        <div><%= @user.name %>さんを、<strong>フォロー</strong>している会員さん一覧です。</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 mx-auto text-center">
+      <table class="table">
+        <tr>
+          <th></th>
+          <th>会員名</th>
+          <th>フォロー</th>
+        </tr>
+          <% @followers.each do |follower| %>
+            <tr>
+              <td class="pt-3"><%= attachment_image_tag follower, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %></td>
+              <td class="align-middle"><%= follower.name %></td>
+              <td class="pt-1 pb-3">
+                <!--会員フォローボタン-->
+                <%= render "relationships/follow_button", user: follower %>
+              </td>
+            </tr>
+          <% end %>
+      </table>
+    </div>
+  </div>
+</div>

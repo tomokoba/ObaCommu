@@ -7,7 +7,7 @@ class Post < ApplicationRecord
 
 
   accepts_attachments_for :photos, attachment: :image
-  
+
   def liked_by(user)
     # user_idとpost_idが一致するlikeを検索する
     Like.find_by(user_id: user.id, post_id: id)

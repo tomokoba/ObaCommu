@@ -24,8 +24,10 @@
               <%= attachment_image_tag @post.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %>
             <% end %>
             <%= link_to user_path(@post.user), class: "no-underline post-user-name", title: @post.user.name do %>
-              <strong><%= truncate(@post.user.name, length: 10) %></strong>
+              <strong><%= truncate(@post.user.name, length: 8) %></strong>
             <% end %>
+
+        　　<%= render "relationships/follow_button", user: @user %>
 
             <!--閲覧者がcurrent_userなら投稿編集ページへのボタンを表示-->
             <% if @post.user == current_user %>
