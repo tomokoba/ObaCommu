@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
 
   def index
     @users = User.all
@@ -11,8 +11,8 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user != current_user
-        redirect_to user_path(current_user), alert: "不正なアクセスです。"
+    if @user != current_user || @user == User.guest
+      redirect_to user_path(current_user), alert: "不正なアクセスです。"
     end
   end
 
@@ -26,6 +26,10 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
+    @user = User.find(params[:id])
+    if @user == User.guest
+      redirect_to user_path(current_user), alert: "不正なアクセスです。"
+    end
   end
 
   def withdraw

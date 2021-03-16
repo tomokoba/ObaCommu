@@ -1,4 +1,46 @@
 ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "を入力してください。"
+            email:
+              blank: "を入力してください。"
+            password:
+              blank: "を入力してください。"
+      models:
+        comment:
+          attributes:
+            comment:
+              blank: "を入力してください。"
+      models:
+        post:
+          attributes:
+            title:
+              blank: "を入力してください。"
+            caption:
+              blank: "を入力してください。"
+            photos_images:
+              blank: "を投稿してください。"
+
+    models:
+      user: "アカウント"
+      comment: "コメント"
+      post: "投稿"
+    attributes:
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+      comment:
+        comment: "コメント"
+      post:
+        title: "タイトル"
+        caption: "本文"
+        photos_images: "写真"
+
   datetime:
     distance_in_words:
       half_a_minute: "30秒前後"
