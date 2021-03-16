@@ -55,6 +55,9 @@
         <div class="m-2 post-time"><%= time_ago_in_words(@post.created_at).upcase %>前</div>
         <hr>
         <div class="new-comment">
+          <div class="comments-error">
+            <%= render "layouts/errors", comment: @comment %>
+          </div>
           <%= form_with(model:[@post, @comment], remote: true) do |f| %>
             <%= f.text_field :comment, class: "form-control", placeholder: "コメント" %>
             <div class="text-right mt-2"><%= f.submit "送信する", class: "btn btn-primary btn-shadow" %></div>

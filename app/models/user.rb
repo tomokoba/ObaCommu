@@ -1,8 +1,10 @@
 class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
-  has_many :likes
-  has_many :comments
+  has_many :likes, dependent: :destroy
+  # いいねランキング用
+  # has_many :liked_posts, through: :likes, source: :post
+  has_many :comments, dependent: :destroy
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
@@ -20,6 +22,13 @@ class User < ApplicationRecord
 
   def following?(other_user)
     self.followings.include?(other_user)
+  end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com', name: 'guest') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
   end
 
   # Include default devise modules. Others available are:
