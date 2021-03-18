@@ -1,43 +1,15 @@
 <div class="topic">
   <div class="container">
-    <h1 class="topic-font my-4">投稿一覧ページ</h1>
-  </div>
-</div>
-
-<div class="card-deck mx-0 my-3">
-  <% @posts.each do |post| %>
-    <div class="col-lg-3 mt-3 px-0">
-      <div class="card-wrap">
-        <div class="card">
-          <div class="card-header align-items-center d-flex">
-            <%= link_to user_path(post.user), class: "no-underline" do %>
-              <%= attachment_image_tag post.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %>
-              <strong><%= post.user.name %></strong>
-            <% end %>
-
-            <% if post.user == current_user %>
-              <%= link_to post_path(post), method: :delete, "data-confirm" => "OKを押すと投稿が削除されます。本当によろしいですか？", class: "ml-auto mx-0 my-auto" do %>
-                <div class="fas fa-trash-alt no-underline-danger">
-                </div>
-              <% end %>
-            <% end %>
-          </div>
-
-          <%= link_to post_path(post), data: {"turbolinks" => false}, class: "no-underline" do %>
-          <% post.photos.first(1).each do |photo| %>
-            <%= attachment_image_tag photo, :image, size:"250x250", class: "d-block mx-auto" %>
-          <% end %>
-          <% end %>
-          <div class="card-body">
-            <div class="like-btn_<%= post.id %>"><%= render "likes/like-btn", post: post %></div>
-            <div>
-              <span><strong><%= truncate post.user.name, length: 8 %></strong></span>
-              <span><%= truncate(post.title, length: 9) %></span><br />
-              <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-underline" %>
-            </div>
-          </div>
-        </div>
+    <div class="row">
+      <div class="col">
+        <h1 class="topic-font my-4">投稿一覧ページ</h1>
+      </div>
+      <div class="col d-flex align-items-center justify-content-end">
+        <%= link_to rank_posts_path, class: "btn btn-info btn-shadow" do %>
+          <div class="fas fa-crown">&nbsp;人気投稿はこちら</div>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
+<%= render 'index', posts: @posts %>

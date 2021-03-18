@@ -53,6 +53,10 @@ class PostsController < ApplicationController
     end
     redirect_to posts_path
   end
+  
+  def rank
+    @posts = Post.includes(:liked_users).sort {|a,b| b.liked_users.size <=> a.liked_users.size}
+  end
 
   private
     def post_params

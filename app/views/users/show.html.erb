@@ -55,24 +55,16 @@
           </div>
 
           <%= link_to post_path(post), data: {"turbolinks" => false}, class: "no-underline" do %>
-          <% post.photos.first(1).each do |photo| %>
-            <%= attachment_image_tag photo, :image, size:"250x250", class: "d-block mx-auto" %>
+            <% post.photos.first(1).each do |photo| %>
+              <%= attachment_image_tag photo, :image, size:"250x250", class: "d-block mx-auto" %>
+            <% end %>
           <% end %>
-          <% end %>
-        <div class="card-body">
-          <div class="like-btn_<%= post.id %>"><%= render "likes/like-btn", post: post %></div>
-          <div>
-            <span><strong><%= truncate post.user.name, length: 8 %></strong></span>
-            <span><%= truncate(post.title, length: 9) %></span><br />
+          <div class="card-body">
+            <div class="like-btn_<%= post.id %>"><%= render "likes/like-btn", post: post %></div>
+            <div>
+              <span><strong><%= truncate post.user.name, length: 8 %></strong></span>
+              <span><%= truncate(post.title, length: 9) %></span><br />
               <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-underline" %>
-              <!--<hr>-->
-              <!--<div class="row parts">-->
-              <!--  <form action="#" class="w-100">-->
-              <!--    <div>-->
-              <!--      <textarea class="form-control comment-input border-0" placeholder="コメント..." rows="1"></textarea>-->
-              <!--    </div>-->
-              <!--  </form>-->
-              <!--</div>-->
             </div>
           </div>
         </div>

@@ -8,29 +8,23 @@
   <div class="card devise-card">
     <div class="form-wrap">
 
-      <% if @post.errors.any? %>
-    　　　<div class="text-danger">
-        <% @post.errors.full_messages.each do |message| %>
-          <div class="text-center">※ <%= message %></div>
-        <% end %>
-    　　　</div>
-　　　<% end %>
+      <%= render "posts/errors", post: @post %>
 
       <%= form_with model: @post, local: true do |f| %>
         <div class="form-group mb-4">
-          <%= f.label "タイトル", class: "font-weight-bold" %></br>
+          <%= f.label "タイトル", class: "font-weight-bold" %>（必須）</br>
           <%= f.text_field :title, class: "form-control" %>
         </div>
         <div class="form-group mb-4">
-        <%= f.label "本文", class: "font-weight-bold" %></br>
-        <%= f.text_field :caption, class: "form-control" %>
+          <%= f.label "本文", class: "font-weight-bold" %>（必須）</br>
+          <%= f.text_field :caption, class: "form-control" %>
         </div>
         <div class="form-group mb-4">
-        <%= f.label "画像", class: "font-weight-bold" %>（必須）複数選択可</br>
-        <%= f.attachment_field :photos_images, multiple: true %>
+          <%= f.label "画像", class: "font-weight-bold" %>（必須）複数選択可</br>
+          <%= f.attachment_field :photos_images, multiple: true %>
         </div>
         <div class="actions">
-        <%= f.submit "投稿する", class: "btn btn-primary btn-shadow w-100" %>
+          <%= f.submit "投稿する", class: "btn btn-primary btn-shadow w-100" %>
         </div>
       <% end %>
     </div>

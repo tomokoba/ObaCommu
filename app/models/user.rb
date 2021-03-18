@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   # いいねランキング用
-  # has_many :liked_posts, through: :likes, source: :post
+  has_many :liked_posts, through: :likes, source: :post
   has_many :comments, dependent: :destroy
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
@@ -33,8 +33,8 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  devise  :database_authenticatable, :registerable, :recoverable,
+          :trackable, :rememberable, :validatable, :confirmable
 
   validates :name, presence: true, uniqueness: true,
                    length: { minimum: 2, maximum: 10 }
