@@ -1,31 +1,32 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <%= link_to "ObaCommu", root_path, class: "navbar__brand navbar__mainLogo no-underline" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-md-auto align-items-center">
-          <% if user_signed_in? %>
-            <!--検索フォーム（投稿タイトル）-->
-            <li class="form-inline">
-              <%= search_form_for @search, url: posts_path do |f| %>
-                <%= f.search_field :title_cont, placeholder: "タイトル", class: "form-control" %>
-                <%= f.submit '検索', class: "btn btn-primary btn-shadow btn-sm" %>
-              <% end %>
-            </li>
-            <li><%= link_to " 投稿する", new_post_path, class: "fas fa-plus-circle nav-link text-dark" %></li>
-            <li><%= link_to " マイページ", user_path(current_user), class: "fas fa-home nav-link text-dark" %></li>
-            <li><%= link_to " 会員一覧", users_path, class: "fas fa-users nav-link text-dark" %></li>
-            <li><%= link_to " 投稿一覧", posts_path, class: "fas fa-camera nav-link text-dark" %></li>
-            <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-dark" %></li>
-          <% else %>
-            <li><%= link_to " トップページ", root_path, class: "fas fa-home nav-link text-dark" %></li>
-            <li><%= link_to " ゲストログイン", users_guest_sign_in_path, method: :post, class: "fas fa-user-tie nav-link text-dark" %></li>
-            <li><%= link_to " 会員登録", new_user_registration_path, class: "fas fa-user-plus nav-link text-dark" %></li>
-            <li><%= link_to " 会員様はこちら", new_user_session_path, class: "fas fa-sign-in-alt nav-link text-dark" %></li>
-          <% end %>
-        </ul>
-      </div>
+  <div class="container">
+    <%= link_to "ObaCommu", root_path, class: "navbar__brand navbar__mainLogo no-underline" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-md-auto align-items-center font-weight-bold">
+        <% if user_signed_in? %>
+          <!--検索フォーム（投稿タイトル）-->
+          <li class="">
+            <%= search_form_for @search, url: posts_path, class: "form-inline" do |f| %>
+              <%= f.search_field :title_cont, placeholder: "タイトル", class: "form-control search-form-with" %>
+              <%= f.submit '検索', class: "btn btn-primary btn-shadow btn-sm mr-2" %>
+            <% end %>
+          </li>
+          <li><%= link_to "投稿する", new_post_path, class: "nav-link text-dark" %></li>
+          <li><%= link_to "マイページ", user_path(current_user), class: "nav-link text-dark" %></li>
+          <li><%= link_to "会員一覧", users_path, class: "nav-link text-dark" %></li>
+          <li><%= link_to "投稿一覧", posts_path, class: "nav-link text-dark" %></li>
+          <li><%= link_to "お問い合わせ", new_contact_path, class: "nav-link text-dark" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-dark" %></li>
+        <% else %>
+          <li><%= link_to "トップページ", root_path, class: "nav-link text-dark" %></li>
+          <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "nav-link text-dark" %></li>
+          <li><%= link_to "会員登録", new_user_registration_path, class: "nav-link text-dark" %></li>
+          <li><%= link_to "ログイン", new_user_session_path, class: "nav-link text-dark" %></li>
+        <% end %>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

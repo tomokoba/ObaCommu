@@ -8,7 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
     end
   end
-  
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -64,12 +64,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-  
-  def after_sign_up_path_for(resource)
-    user_path(current_user)
+  def after_inactive_sign_up_path_for(resource)
+    confirm_email_path
+  end
+
+  def confirm_email
   end
 
 end
