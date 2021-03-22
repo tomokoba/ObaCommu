@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   accepts_attachments_for :photos, attachment: :image
   validates :title, presence: true
   validates :caption, presence: true
-  validates :photos_images, presence: true
+  validates :photos_images, presence: true, length: { maximum: 5, too_long: "は最大%{count}枚まで投稿できます" }
 
   def liked_by(user)
     # user_idとpost_idが一致するlikeを検索する

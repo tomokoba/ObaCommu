@@ -2,12 +2,14 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <h1 class="topic-font my-4">投稿一覧ページ</h1>
+        <h1 class="topic-font my-4">投稿一覧</h1>
       </div>
-      <div class="col d-flex align-items-center justify-content-end">
-        <%= link_to rank_posts_path, class: "btn btn-info btn-shadow" do %>
-          <div class="fas fa-crown">&nbsp;人気投稿はこちら</div>
-        <% end %>
+      <div class="extra-link my-auto">
+        <div class="col d-flex align-items-center justify-content-end">
+          <%= link_to rank_posts_path, class: "btn btn-green" do %>
+            <div class="fas fa-crown">人気投稿はこちら</div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

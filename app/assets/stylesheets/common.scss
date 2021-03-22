@@ -11,11 +11,12 @@ footer {
 }
 
 .no-underline {
-  text-decoration:none !important;
+  text-decoration: none !important;
   color: #262626;
 }
 
 .no-underline:hover {
+  text-decoration: underline !important;
   color: #262626;
   opacity: 0.8;
 }
@@ -44,9 +45,35 @@ footer {
   font-size: 20px;
 }
 .topic {
-  height: 80px;
+  height: auto;
   background-color: #FFF;
 }
 .topic-font {
   font-size: 28px;
+}
+// ボタンカスタマイズ
+.btn-green,
+.btn-green.disabled, .btn-green:disabled {
+  color: #fff;
+  background: #51B86A;
+  background: #51B86A;
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-bottom: solid 4px #627295;
+}
+.btn-green:focus, .btn-green.focus,
+.btn-green:not(:disabled):not(.disabled):active:focus, .btn-green:not(:disabled):not(.disabled).active:focus,
+.show > .btn-green.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgb(80,185,106);
+}
+.btn-green:hover {
+  color: #fff;
+  background-color: #469c5b;
+  border-color: #469c5b;
+}
+.btn-green:not(:disabled):not(.disabled):active, .btn-green:not(:disabled):not(.disabled).active,
+.show > .btn-green.dropdown-toggle {
+  color: #fff;
+  background-color: #51B86A;
+  border-color: #51B86A;
 }

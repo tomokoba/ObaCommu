@@ -17,6 +17,9 @@
         </p>
       </div>
       <%= form_with model: @contact, url: confirm_path, local:true do |f| %>
+
+        <%= render "contacts/errors", contact: @contact %>
+
         <div class="form-group">
           <%= f.label :name, 'お名前*' %>
           <%= f.text_field :name, autofocus: true, class: 'form-control' %>
@@ -33,7 +36,7 @@
         </div>
 
         <div>
-          <%= f.submit '入力内容確認', class: "btn btn-primary btn-shadow w-100" %>
+          <%= f.submit '入力内容確認', class: "btn btn-green w-100" %>
         </div>
       <% end %>
     </div>

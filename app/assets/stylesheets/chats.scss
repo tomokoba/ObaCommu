@@ -1,0 +1,30 @@
+// Place all the styles related to the chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.chat {
+  max-width: 960px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 10px 75px 100px;
+  display: block;
+  flex: 1;
+  flex-basis: auto;
+  box-sizing: border-box;
+}
+.chat-card {
+  border: none;
+  background-color: #fff0ed;
+}
+@media screen and (max-width: 768px) {
+  .chat {
+    padding: 10px 0;
+  }
+  .topic {
+    height: auto;
+  }
+  .topic-font {
+    font-size: 16px;
+    margin: 0px;
+  }
+}
+// チャットのpaddingを見直す（mobile

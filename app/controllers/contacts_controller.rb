@@ -17,6 +17,10 @@ class ContactsController < ApplicationController
     render :new
   end
 
+  def error
+    redirect_to new_contact_path
+  end
+
   # 送信するアクション
   def create
     @contact = Contact.new(contact_params)
