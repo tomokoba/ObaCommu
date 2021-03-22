@@ -1,6 +1,6 @@
 <div class="topic">
   <div class="container">
-    <h1 class="topic-font my-4">会員退会ページ</h1>
+    <h1 class="topic-font my-4">退会</h1>
   </div>
 </div>
 
@@ -8,12 +8,12 @@
   <div class="card border-danger">
     <div class="card-header bg-danger"><h2 class="text-center mb-0"><span class="text-light">ご注意ください</span></h2></div>
     <div class="form-wrap">
-      <p>こちらはObaCommuから退会するためのページです。<br />
-         ObaCommuから退会手続きを完了しますと<br />
+      <p>こちらは<strong>おばコミュ</strong>から退会するためのページです。<br />
+         おばコミュから退会手続きを完了しますと<br />
          <span class="text-danger font-weight-bold">退会した会員を再度利用することはできなくなります。</span>
       </p>
       <div class="text-center mt-4">
-        <%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-primary mr-2 btn-shadow btn-lg" %>
+        <%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-green mr-2 btn-lg" %>
         <%= link_to "退会する", withdraw_user_path(current_user), method: :patch, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？", class: "btn btn-danger btn-shadow btn-lg" %>
     	</div>
     </div>

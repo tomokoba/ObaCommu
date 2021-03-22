@@ -43,3 +43,8 @@
   line-height: 0;
   margin-right: 10px;
 }
+@media screen and (max-width: 768px) {
+  .extra-link {
+    width: auto;
+  }
+}

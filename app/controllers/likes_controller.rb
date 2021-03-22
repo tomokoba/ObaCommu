@@ -5,7 +5,6 @@ class LikesController < ApplicationController
   def index
     @post_for_likes = Like.where(post_id: params[:post_id])
     @post = Post.find(params[:post_id])
-    @user = @post.user
   end
 
   def create

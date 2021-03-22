@@ -1,6 +1,6 @@
 <div class="topic">
   <div class="container">
-    <h1 class="topic-font my-4">投稿編集ページ</h1>
+    <h1 class="topic-font my-4">投稿編集</h1>
   </div>
 </div>
 <div class="main">
@@ -11,19 +11,19 @@
 
   　　<%= form_with model: @post, url: post_path(@post), method: :patch, local:true do |f| %>
         <div class="form-group mb-4">
-          <%= f.label "タイトル", class: "font-weight-bold" %><br />
+          <%= f.label "タイトル", class: "font-weight-bold" %>（必須）<br />
           <%= f.text_field :title, class: "form-control" %>
         </div>
         <div class="form-group mb-4">
-          <%= f.label "説明文", class: "font-weight-bold" %><br />
+          <%= f.label "説明文", class: "font-weight-bold" %>（必須）<br />
           <%= f.text_field :caption, class: "form-control" %>
         </div>
         <div class="form-group mb-4">
-          <%= f.label "画像", class: "font-weight-bold" %>（必須）複数選択可</br>
+          <%= f.label "画像", class: "font-weight-bold" %>（必須：最大5枚まで）</br>
           <%= f.attachment_field :photos_images, multiple: true %>
         </div>
         <div class="actions">
-          <%= f.submit "編集を完了する", class: "btn btn-primary btn-shadow w-100" %>
+          <%= f.submit "編集を完了する", class: "btn btn-green w-100" %>
         </div>
       <% end %>
 

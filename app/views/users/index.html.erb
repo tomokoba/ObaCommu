@@ -3,7 +3,6 @@
     <h1 class="topic-font my-4">会員一覧ページ</h1>
   </div>
 </div>
-
 <div class="container mt-5">
   <div class="row">
     <% @users.each do |user| %>
@@ -12,7 +11,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= user.name %></h5>
           <p class="card-text"><%= truncate user.profile, length: 15, omission: '...' %></p>
-          <%= link_to "詳細をみる", user_path(user), class: "btn btn-primary btn-shadow btn-lg d-block mx-auto" %>
+          <%= link_to "詳細をみる", user_path(user), class: "btn btn-green btn-lg d-block mx-auto" %>
         </div>
       </div>
     <% end %>

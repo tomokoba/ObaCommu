@@ -3,7 +3,7 @@
   <!--<div class="d-flex flex-wrap">-->
   <% @posts.each do |post| %>
   <!--<div class="col-lg-3 mt-3 px-0">-->
-    <div class="">
+    <div class="col-md-3 mb-4">
       <div class="card-wrap">
         <div class="card">
           <div class="card-header align-items-center d-flex">
@@ -25,11 +25,17 @@
             <% end %>
           <% end %>
           <div class="card-body">
-            <div class="like-btn_<%= post.id %>"><%= render "likes/like-btn", post: post %></div>
+            <!--<div class="like-btn_<%#= post.id %>"><%#= render "likes/like-btn", post: post %></div>-->
+            <div>
+              <strong class="like-btn_<%= post.id %>">
+                <%= render "likes/like-btn", post: post %>
+              </strong>
+              コメント<%= post.comments.count %>
+            </div>
             <div>
               <span><strong><%= truncate post.user.name, length: 8 %></strong></span>
               <span><%= truncate(post.title, length: 9) %></span><br />
-              <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-underline" %>
+              <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), data: {"turbolinks" => false}, class: "post-time no-underline" %>
             </div>
           </div>
         </div>

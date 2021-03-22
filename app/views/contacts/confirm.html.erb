@@ -36,7 +36,7 @@
           <%= f.hidden_field :name %>
           <%= f.hidden_field :email %>
           <%= f.hidden_field :message %>
-          <%= f.submit '送信する', class: "btn btn-primary btn-shadow w-100" %>
+          <%= f.submit '送信する', class: "btn btn-green w-100" %>
         <% end %>
         <%= form_with model: @contact, url: back_path, local: true do |f| %>
           <%= f.hidden_field :name %>

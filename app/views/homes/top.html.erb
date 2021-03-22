@@ -1,1 +1,60 @@
-<p>トップページです</p>
+<div class="container-fluid top-wrap px-0">
+  <div class="image-wrap">
+    <div class="grandma-img"></div>
+      <div class="text-center top-text-wrap">
+        <h2>
+          おばコミュへようこそ！
+        </h2>
+        <p>おばあちゃん専用のSNSサイトです。<br />
+          あなたの趣味や日常を世界に発信してみませんか？
+        </p>
+        <div class="mb-3">
+          <%= link_to "新規会員登録（無料）", new_user_registration_path, class: "btn btn-green btn-lg w-75" %>
+        </div>
+        <div>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-secondary btn-lg btn-shadow w-75" %>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="text-center new-post">
+  <h2>新着投稿</h2>
+</div>
+<p class="text-center mb-5">※ 詳細をご覧になるには、会員登録またはログインが必要です。</p>
+<div class="card-deck mx-0 mb-5 justify-content-center">
+  <% @posts.each do |post| %>
+    <div class="card-wrap">
+      <div class="card">
+        <div class="card-header align-items-center d-flex">
+          <%= link_to user_path(post.user), class: "no-underline" do %>
+            <%= attachment_image_tag post.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %>
+            <strong><%= post.user.name %></strong>
+          <% end %>
+
+          <% if post.user == current_user %>
+            <%= link_to post_path(post), method: :delete, "data-confirm" => "OKを押すと投稿が削除されます。本当によろしいですか？", class: "ml-auto mx-0 my-auto" do %>
+              <div class="fas fa-trash-alt no-underline-danger"></div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <%= link_to post_path(post), data: {"turbolinks" => false}, class: "no-underline" do %>
+          <% post.photos.first(1).each do |photo| %>
+            <%= attachment_image_tag photo, :image, size: "330x330", class: "d-block mx-auto" %>
+          <% end %>
+        <% end %>
+        <div class="card-body">
+          <div>
+            <span class="fas fa-heart heart_red"><%= post.likes.count %></span>
+            コメント<%= post.comments.count %>
+          </div>
+          <div>
+            <span><strong><%= truncate post.user.name, length: 8 %></strong></span>
+            <span><%= truncate(post.title, length: 9) %></span><br />
+            <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), data: {"turbolinks" => false}, class: "post-time no-underline" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
