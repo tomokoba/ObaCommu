@@ -41,5 +41,6 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create]
   get 'contacts/confirm', to: 'contacts#error'
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
+  get 'contacts/back', to: 'contacts#error'
   post 'contacts/back', to: 'contacts#back', as: 'back'
 end
