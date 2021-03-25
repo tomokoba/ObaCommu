@@ -90,7 +90,7 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
-  config.action_mailer.default_url_options = { protocol: 'https', host: 'https://968edb269ec84ef7b1fbe6b90243b270.vfs.cloud9.ap-northeast-1.amazonaws.com/'}
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'https://obacommu.com/'}
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
