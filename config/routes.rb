@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-
   get 'chats/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
   }
 
   devise_scope :user do
@@ -13,15 +12,13 @@ Rails.application.routes.draw do
 
   root 'homes#top'
 
-  resources :users, except: [:new, :create, :destroy] do
+  resources :users, except: [:new, :create] do
     member do
-     get :following, :followers, :likes
+      get :following, :followers, :likes
     end
   end
 
   get 'users/:id/unsubscribe', to: 'users#unsubscribe', as: 'confirm_unsubscribe'
-  patch 'users/:id/withdraw', to: 'users#withdraw', as: 'withdraw_user'
-  put 'users/:id/withdraw', to: 'users#withdraw'
 
   resources :posts do
     collection do
@@ -36,7 +33,6 @@ Rails.application.routes.draw do
 
   get 'chat/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
-
 
   resources :contacts, only: [:new, :create]
   get 'contacts/confirm', to: 'contacts#error'

@@ -7,14 +7,14 @@
 <div class="main">
   <div class="card border-danger">
     <div class="card-header bg-danger"><h2 class="text-center mb-0"><span class="text-light">ご注意ください</span></h2></div>
-    <div class="form-wrap">
-      <p>こちらは<strong>おばコミュ</strong>から退会するためのページです。<br />
+    <div class="form-wrap-danger">
+      <p class="pl-1">こちらは<strong>おばコミュ</strong>から退会するためのページです。<br />
          おばコミュから退会手続きを完了しますと<br />
          <span class="text-danger font-weight-bold">退会した会員を再度利用することはできなくなります。</span>
       </p>
       <div class="text-center mt-4">
         <%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-green mr-2 btn-lg" %>
-        <%= link_to "退会する", withdraw_user_path(current_user), method: :patch, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？", class: "btn btn-danger btn-shadow btn-lg" %>
+        <%= link_to "退会する", user_path(current_user), method: :delete, "data-confirm" => "OKを押すと退会処理がされます。本当によろしいですか？", class: "btn btn-danger btn-shadow btn-lg" %>
     	</div>
     </div>
   </div>

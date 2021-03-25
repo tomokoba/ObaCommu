@@ -1,7 +1,7 @@
 <!--<div class="row justify-content-center">-->
 <div class="card-deck mx-0 my-3">
   <!--<div class="d-flex flex-wrap">-->
-  <% @posts.each do |post| %>
+  <% posts.each do |post| %>
   <!--<div class="col-lg-3 mt-3 px-0">-->
     <div class="col-md-3 mb-4">
       <div class="card-wrap">
@@ -35,7 +35,8 @@
             <div>
               <span><strong><%= truncate post.user.name, length: 8 %></strong></span>
               <span><%= truncate(post.title, length: 9) %></span><br />
-              <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), data: {"turbolinks" => false}, class: "post-time no-underline" %>
+              <span><%= truncate(post.caption, length: 18) %></span><br />
+              <%= link_to time_ago_in_words(post.created_at, include_seconds: true).upcase + "前", post_path(post), data: {"turbolinks" => false}, class: "post-time no-underline" %>
             </div>
           </div>
         </div>
@@ -43,5 +44,6 @@
     </div>
   <% end %>
   </div>
+  <div class="mx-auto"><%= paginate @posts %></div>
 <!--</div>-->
 <!--</div>-->

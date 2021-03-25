@@ -1,12 +1,14 @@
 .navbar {
-  background-color: #f9d1d4;
+  background-color: #ed908e;
   border-bottom: 1px solid rgba(0, 0, 0, .0975);
+  font-size: 18px;
 }
-
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: #FFF;
-}
-
 .search-form-with {
   width: 150px;
+}
+.logo-img {
+  background-size: contain;
+}
+.logo-img:hover {
+  opacity: 0.8;
 }

@@ -1,8 +1,13 @@
+<div class="topic">
+  <div class="container">
+    <h1 class="topic-font my-4">ログイン</h1>
+  </div>
+</div>
 <div class="main">
   <div class="card devise-card">
     <div class="form-wrap">
       <div class="form-group text-center mb-4">
-        <h2 class="mx-auto mb-4">ObaCommu</h2>
+        <h2 class="mx-auto mb-4">おばコミュ</h2>
         <p>会員登録時に利用した方法で、ログインください。</p>
       </div>
       <div>
@@ -27,10 +32,10 @@
         <% end %>
       </div>
       <div class="mt-4">
-        はじめてご利用の方ですか？ <%= link_to "登録する", new_user_registration_path %>
+        はじめてご利用の方ですか？ <%= link_to "登録する", new_user_registration_path, class: "underline_link" %>
       </div>
       <div>
-        パスワードをお忘れですか？ <%= link_to "変更する", new_user_password_path %>
+        パスワードをお忘れですか？ <%= link_to "変更する", new_user_password_path, class: "underline_link" %>
 　　　</div>
     </div>
   </div>

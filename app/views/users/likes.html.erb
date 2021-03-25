@@ -44,6 +44,7 @@
               <div>
                 <span><strong><%= truncate post.user.name, length: 8 %></strong></span>
                 <span><%= truncate(post.title, length: 9) %></span><br />
+                <span><%= truncate(post.caption, length: 18) %></span><br />
                 <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), data: {"turbolinks" => false}, class: "post-time no-underline" %>
               </div>
             </div>
@@ -57,3 +58,6 @@
 <% else %>
   <div class="text-center mt-5"><%= @user.name %>さんがいいねした投稿はありません。</div>
 <% end %>
+<div class="mx-auto">
+  <%= paginate @likes %>
+</div>
