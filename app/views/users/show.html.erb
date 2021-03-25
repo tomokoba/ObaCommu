@@ -49,17 +49,17 @@
             投稿&nbsp;<strong><%= @user.posts.count %></strong>件
           </div>
           <div class="col-md-4">
-            <%= link_to likes_user_path(@user), class: "no-underline" do %>
+            <%= link_to likes_user_path(@user), class: "underline_link" do %>
               いいねした投稿&nbsp;<strong><%= @user.likes.count %></strong>件
             <% end %>
           </div>
           <div class="col-md-3">
-            <%= link_to followers_user_path(@user), class: "no-underline" do %>
+            <%= link_to followers_user_path(@user), class: "underline_link" do %>
               フォロワー&nbsp;<strong id="followers-count"><%= @user.followers.count %></strong>人
             <% end %>
           </div>
           <div class="col-md-3">
-            <%= link_to following_user_path(@user), class: "no-underline" do %>
+            <%= link_to following_user_path(@user), class: "underline_link" do %>
               フォロー中&nbsp;<strong><%= @user.followings.count %></strong>人
             <% end %>
           </div>
@@ -99,6 +99,7 @@
             <div>
               <span><strong><%= truncate post.user.name, length: 8 %></strong></span>
               <span><%= truncate(post.title, length: 9) %></span><br />
+              <span><%= truncate(post.caption, length: 18) %></span><br />
               <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-underline" %>
             </div>
           </div>

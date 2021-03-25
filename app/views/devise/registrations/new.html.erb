@@ -1,12 +1,17 @@
+<div class="topic">
+  <div class="container">
+    <h1 class="topic-font my-4">新規会員登録</h1>
+  </div>
+</div>
 <div class="main">
   <div class="card devise-card">
     <div class="form-wrap">
       <div class="form-group text-center mb-4">
-        <h2 class="mx-auto">ObaCommu</h2>
+        <h2 class="mx-auto">おばコミュ</h2>
         <p class="font-weight-bold">おばあちゃんの趣味を世界に広めよう</p>
       </div>
       <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="form-group mb-4">
         <%= f.label "お名前の入力", class: "font-weight-bold" %><br />
@@ -31,14 +36,12 @@
 
       <div class="actions">
         <%= f.submit "会員登録をする", class: "btn btn-green w-100" %>
+        <div class="my-2 text-center">ボタンを押すとおばコミュからメールが届きます。</div>
       </div>
-    <% end %>
-
-    <br>
-
-      <p class="devise-link">
+      <% end %>
+      <p class="my-4 text-center">
         すでに会員登録済ですか？
-        <%= link_to "ログインはこちら", new_user_session_path %>
+        <%= link_to "ログインはこちら", new_user_session_path, class: "underline_link" %>
       </p>
     </div>
   </div>

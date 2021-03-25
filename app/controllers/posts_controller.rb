@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-
   before_action :authenticate_user!
+  before_action :non_presence_post, except: [:new, :create, :index, :rank]
 
   def new
     @post = Post.new
@@ -19,7 +19,7 @@ class PostsController < ApplicationController
 
   def index
     @search = Post.ransack(params[:q])
-    @posts = @search.result.order('created_at DESC')
+    @posts = @search.result.page(params[:page]).reverse_order.per(4)
   end
 
   def show
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     if @post.user != current_user
-        redirect_to post_path(@post), alert: "不正なアクセスです。"
+      redirect_to post_path(@post), alert: "不正なアクセスです。"
     end
   end
 
@@ -47,20 +47,29 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find_by(id: params[:id])
     if @post.user == current_user
-      flash[:notice] = "投稿が削除されました。" if @post.destroy
+      @post.destroy
+      flash[:notice] = "投稿が削除されました。"
     else
       flash[:alert] = "投稿の削除に失敗しました。"
     end
     redirect_to posts_path
   end
-  
+
   def rank
-    @posts = Post.includes(:liked_users).sort {|a,b| b.liked_users.size <=> a.liked_users.size}
+    posts = Post.includes(:liked_users).sort { |a, b| b.liked_users.size <=> a.liked_users.size }
+    @posts = Kaminari.paginate_array(posts).page(params[:page]).per(12)
   end
 
   private
-    def post_params
-      params.require(:post).permit(:title, :caption, photos_images:[] ).merge(user_id: current_user.id)
-    end
 
+  def post_params
+    params.require(:post).permit(:title, :caption, photos_images: []).merge(user_id: current_user.id)
+  end
+
+  def non_presence_post
+    @post = Post.find_by(id: params[:id])
+    if @post.blank?
+      redirect_to user_path(current_user), alert: "不正なアクセスです。"
+    end
+  end
 end

@@ -70,5 +70,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def confirm_email
   end
-
 end

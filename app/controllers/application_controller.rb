@@ -6,14 +6,13 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:name])
-    end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  end
 
-    def set_search_params
-      @search = Post.ransack(params[:q])
-      @posts = @search.result.order('created_at DESC')
-    end
-
+  def set_search_params
+    @search = Post.ransack(params[:q])
+    @posts = @search.result.order('created_at DESC')
+  end
 end

@@ -7,7 +7,7 @@
   <% else %>
     <%= form_with model: current_user.relationships.build, remote: true do |f| %>
       <%= hidden_field_tag :follow_id, user.id %>
-      <%= f.submit 'フォローする', class: 'btn btn-primary btn-shadow d-block mx-auto' %>
+      <%= f.submit 'フォローする', class: 'btn btn-secondary btn-shadow-dark d-block mx-auto' %>
     <% end %>
   <% end %>
 <% end %>
