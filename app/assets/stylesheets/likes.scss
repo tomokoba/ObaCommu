@@ -1,0 +1,21 @@
+// Place all the styles related to the likes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*赤いハート（いいね済）*/
+.heart_red {
+  color: #e54747;
+}
+
+/*グレーのハート（いいね未）*/
+.heart_gray {
+  color: #808080;
+}
+
+.no-underline_heart {
+  text-decoration: none !important;
+}
+.no-underline_heart:hover {
+  font-size: 20px;
+  color: #48B594;
+}

@@ -1,0 +1,42 @@
+<div class="topic">
+  <div class="container">
+    <h1 class="topic-font my-4">いいね一覧</h1>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 mx-auto text-center">
+      <% if @post.likes.present? %>
+        <table class="table">
+          <tr>
+            <th>いいね数：<%= @post.likes.count %></th>
+            <th>会員名</th>
+            <th>フォロー</th>
+          </tr>
+            <% @post_for_likes.each do |like| %>
+              <tr>
+                <td class="pt-3">
+                  <%= link_to user_path(like.user) do %>
+                    <%= attachment_image_tag like.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon no-underline" %>
+                  <% end %>
+                </td>
+                <td class="align-middle">
+                  <%= link_to user_path(like.user), class: "no-underline" do %>
+                    <%= like.user.name %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if like.user != current_user %>
+                  <!--会員フォローボタン-->
+                    <%= render "relationships/follow_button", user: like.user %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+        </table>
+      <% else %>
+        <div>この投稿にいいねした人はいません。</div>
+      <% end %>
+    </div>
+  </div>
+</div>

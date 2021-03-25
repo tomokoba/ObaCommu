@@ -1,0 +1,18 @@
+<div class="topic">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="topic-font my-4">投稿一覧</h1>
+      </div>
+      <div class="extra-link my-auto">
+        <div class="col d-flex align-items-center justify-content-end">
+          <%= link_to rank_posts_path, class: "btn btn-green" do %>
+            <div class="fas fa-crown">人気投稿はこちら</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="text-center my-4">※ 画像をクリックすると、投稿の詳細が見られます。</p>
+<%= render 'index', posts: @posts %>

@@ -1,0 +1,13 @@
+<% if current_user != user %>
+  <% if current_user.following?(user) %>
+    <%= form_with model: current_user.relationships.find_by(follow_id: user.id), method: :delete, remote: true do |f| %>
+      <%= hidden_field_tag :follow_id, user.id %>
+      <%= f.submit 'フォロー解除', class: 'btn btn-danger btn-shadow d-block mx-auto' %>
+    <% end %>
+  <% else %>
+    <%= form_with model: current_user.relationships.build, remote: true do |f| %>
+      <%= hidden_field_tag :follow_id, user.id %>
+      <%= f.submit 'フォローする', class: 'btn btn-secondary btn-shadow-dark d-block mx-auto' %>
+    <% end %>
+  <% end %>
+<% end %>

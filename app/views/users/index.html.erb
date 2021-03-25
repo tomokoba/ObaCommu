@@ -1,0 +1,29 @@
+<div class="topic">
+  <div class="container">
+    <h1 class="topic-font my-4">会員一覧</h1>
+  </div>
+</div>
+<!--<div class="container mt-5">-->
+<!--  <div class="row">-->
+<div class="container-fluid">
+  <p class="text-center my-4">※ 画像をクリックすると、会員様の詳細が見られます。</p>
+  <div class="card-deck mx-0 my-3">
+      <% @users.each do |user| %>
+        <div class="card col-md-3">
+          <%= link_to user_path(user), class: "no-underline" do %>
+            <%= attachment_image_tag user, :profile_image, fallback: "no-image.jpg", size:"220x220", class: "d-block mx-auto" %>
+          <% end %>
+          <div class="card-body text-center">
+            <%= link_to user_path(user), class: "no-underline" do %>
+              <h5 class="card-title"><%= user.name %></h5>
+            <% end %>
+            <p class="card-text"><%= truncate user.profile, length: 15, omission: '...' %></p>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
+<div class="mx-auto"><%= paginate @users %></div>
+<!--  </div>-->
+<!--</div>-->
+

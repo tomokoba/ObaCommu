@@ -1,0 +1,30 @@
+<div class="main">
+  <div class="card devise-card">
+    <div class="form-wrap">
+      <div class="form-group mb-4">
+        <h3 class="mx-auto text-center">パスワード再設定</h3>
+        <p class="mt-3">以下のフォームにご入力ください。</p>
+      </div>
+      <div>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div class="field mb-4">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例) example@example.com", class: "form-control" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "パスワード再発行", class: "btn btn-green w-100" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="mt-4 mb-1">
+        はじめてご利用の方ですか？ <%= link_to "会員登録する", new_user_registration_path %>
+      </div>
+      <div>
+        すでに会員登録済ですか？ <%= link_to "ログインする", new_user_session_path %>
+　　　</div>
+    </div>
+  </div>
+</div>

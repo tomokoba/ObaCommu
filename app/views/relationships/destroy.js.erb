@@ -1,0 +1,6 @@
+<% if @following_flg.present? %>
+  $("#follow_<%= @user.id %>").html("");
+<% else %>
+  $("#follow_<%= @user.id %>").html("<%= j(render("relationships/js_follow_btn", user: @user)) %>");
+  $("#followers-count").text("<%= @user.followers.count %>")
+<% end %>

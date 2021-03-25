@@ -1,0 +1,38 @@
+<div class="topic">
+  <div class="container">
+    <h1 class="topic-font my-4"><%= @user.name %>さんとのチャットルーム</h1>
+  </div>
+</div>
+
+<div class="chat">
+  <div class="card chat-card">
+      <div class="text-center mt-3">
+        <%= form_with model: @chat do |f| %>
+          <div class="form-inline justify-content-center mb-2">
+            <div class="input-group">
+              <%= f.text_field :message, placeholder: "メッセージを入力", class: "form-control w-50 py-3" %>
+              <%= f.hidden_field :room_id %>
+              <span class="input-group-btn">
+                <%= f.submit "送信", class: "btn btn-success" %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div id="chats">
+        <% @chats.each do |chat| %>
+          <% if chat.user == current_user %>
+            <div class="mycomment d-flex justify-content-end py-1">
+              <%= chat.message %>
+            </div>
+          <%else%>
+            <div class="pb-1">
+              <%= attachment_image_tag chat.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %>
+              <%= chat.message %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>

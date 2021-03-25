@@ -1,0 +1,15 @@
+<% if post.errors.any? %>
+  <div class="alert alert-danger alert-dismissible text-center" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-lebel="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="fas fa-exclamation-triangle mb-2 ml-2">
+      <span class="font-weight-normal">&thinsp;以下の内容をご確認ください</span>
+    </div>
+    <div>
+      <% post.errors.full_messages.each do |message| %>
+        <strong class="ml-3"><%= message %></strong><br />
+      <% end %>
+    </div>
+  </div>
+<% end %>

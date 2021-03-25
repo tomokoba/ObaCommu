@@ -1,0 +1,46 @@
+<div class="topic">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <h1 class="topic-font my-4">フォロー中</h1>
+      </div>
+      <div class="col-md-9 my-auto">
+        <div><%= @user.name %>さんが、<strong>フォロー</strong>している会員さん一覧です。</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-8 mx-auto text-center">
+      <% if @followings.present? %>
+        <table class="table">
+          <tr>
+            <th>フォロー数：<%= @user.followings.count %></th>
+            <th>会員名</th>
+            <th>フォロー</th>
+          </tr>
+            <% @followings.each do |following| %>
+              <tr>
+                <td class="pt-3">
+                  <%= link_to user_path(following), class: "no-underline" do %>
+                    <%= attachment_image_tag following, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %>
+                  <% end %>
+                </td>
+                <td class="align-middle">
+                  <%= link_to user_path(following), class: "no-underline" do %>
+                    <%= following.name %>
+                  <% end %>
+                </td>
+                <td class="pt-2 pb-3">
+                  <%= render "relationships/follow_button", user: following %>
+                </td>
+              </tr>
+            <% end %>
+        </table>
+      <% else %>
+        <div><%= @user.name %>さんがフォロー中の会員はいません。</div>
+      <% end %>
+    </div>
+  </div>
+</div>

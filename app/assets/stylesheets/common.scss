@@ -1,0 +1,146 @@
+body {
+  background-color: #F5E5E1;
+  font-size: 16px;
+  line-height: 160%;
+  color: #262626;
+}
+
+footer {
+  margin-top: auto;
+  background-color: #ed908e;
+  color: #FFF;
+}
+
+.underline_link {
+  text-decoration: underline !important;
+  color: #262626;
+}
+
+.underline_link:hover {
+  text-decoration: underline !important;
+  color: #057BFE;
+}
+
+.no-underline {
+  text-decoration: none !important;
+  color: #262626;
+}
+
+.no-underline:hover {
+  text-decoration: underline !important;
+  color: #262626;
+  opacity: 0.8;
+}
+
+.no-underline-danger {
+  text-decoration: underline !important;
+  color: #262626;
+}
+
+.no-underline-danger:hover {
+  text-decoration: underline !important;
+  color: #DD3444;
+}
+
+.btn-shadow {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-bottom: solid 4px #627295;
+}
+.btn-shadow:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+.btn-shadow-dark {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-bottom: solid 4px #45464a;
+}
+.btn-shadow-dark:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+.mail-font {
+  font-size: 20px;
+}
+.topic {
+  height: auto;
+  background-color: #F3F5ED;
+}
+.topic-font {
+  font-size: 28px;
+}
+// ボタン(グリーン)
+.btn-green,
+.btn-green.disabled, .btn-green:disabled {
+  color: #fff;
+  background-color: #51B86A;
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-bottom: solid 4px #627295;
+}
+.btn-green:focus, .btn-green.focus,
+.btn-green:not(:disabled):not(.disabled):active:focus, .btn-green:not(:disabled):not(.disabled).active:focus,
+.show > .btn-green.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgb(80,185,106);
+}
+.btn-green:hover {
+  color: #fff;
+  background-color: #469c5b;
+  border-color: #469c5b;
+}
+.btn-green:not(:disabled):not(.disabled):active, .btn-green:not(:disabled):not(.disabled).active,
+.show > .btn-green.dropdown-toggle {
+  color: #fff;
+  background-color: #51B86A;
+  border-color: #51B86A;
+}
+// ボタン(ピンク)
+.btn-pink,
+.btn-pink.disabled, .btn-pink:disabled {
+  color: #fff;
+  background-color: #F26968;
+  display: inline-block;
+  padding: 0.5em 1em;
+  border-bottom: solid 4px #627295;
+}
+.btn-pink:focus, .btn-pink.focus,
+.btn-pink:not(:disabled):not(.disabled):active:focus, .btn-pink:not(:disabled):not(.disabled).active:focus,
+.show > .btn-pink.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgb(80,185,106);
+}
+.btn-pink:hover {
+  color: #fff;
+  background-color: #469c5b;
+  border-color: #469c5b;
+}
+.btn-pink:not(:disabled):not(.disabled):active, .btn-pink:not(:disabled):not(.disabled).active,
+.show > .btn-pink.dropdown-toggle {
+  color: #fff;
+  background-color: #F26968;
+  border-color: #F26968;
+}
+// カミナリ(ページャ)
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #F26968;
+    border-color: #F26968;
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #F26968;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+.page-link:hover {
+  color: #F26968;
+}
