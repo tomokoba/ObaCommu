@@ -18,7 +18,6 @@
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class="my-5">
     <div class="row">
@@ -28,15 +27,12 @@
       <div class="col-md-9 pr-0">
         <div class="row mb-3">
           <div class="col-md-4 my-auto">
-            <h4><%= @user.name %></h4>
+            <h4 class="font-weight-bold"><%= @user.name %></h4>
           </div>
           <% if @user == current_user %>
             <div class="col-md-4">
               <p class="font-weight-bold mail-font"><%= truncate @user.email, length: 25 %></p>
             </div>
-            <!--<div class="col-md-3">-->
-            <!--  <%#= link_to "会員情報の編集", edit_user_path(@user), class: "btn btn-primary btn-shadow btn-lg d-block mx-auto" %>-->
-            <!--</div>-->
           <% else %>
             <div class="col-md-8">
             <!--会員フォローボタン-->
@@ -69,26 +65,19 @@
     </div>
   </div>
 </div>
-
 <div class="card-deck mx-0 mb-3">
   <% @user.posts.each do |post| %>
     <div class="col-lg-3 mt-3">
       <div class="card-wrap">
         <div class="card">
           <div class="card-header align-items-center d-flex">
-            <%= link_to user_path(post.user), class: "no-underline" do %>
-              <%= attachment_image_tag post.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %>
-              <strong><%= post.user.name %></strong>
-            <% end %>
-
+            <!--投稿削除ボタン-->
             <% if post.user_id == current_user.id %>
               <%= link_to post_path(post), method: :delete, "data-confirm" => "OKを押すと投稿が削除されます。本当によろしいですか？", class: "ml-auto mx-0 my-auto" do %>
-                <div class="fas fa-trash-alt no-underline-danger">
-                </div>
+                <div class="fas fa-times no-underline-danger lead"></div>
               <% end %>
             <% end %>
           </div>
-
           <%= link_to post_path(post), data: {"turbolinks" => false}, class: "no-underline" do %>
             <% post.photos.first(1).each do |photo| %>
               <%= attachment_image_tag photo, :image, size:"250x250", class: "d-block mx-auto" %>

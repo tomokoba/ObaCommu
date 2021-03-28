@@ -15,7 +15,7 @@
           <div class="card-body">
             <div>
               <%= link_to user_path(user), class: "no-underline" do %>
-                <h5 class="card-title text-center"><%= user.name %></h5>
+                <strong class="h5 font-weight-bold"><%= user.name %></strong>
               <% end %>
               <div><%= truncate(user.profile, length: 30) %></div>
             </div>

@@ -28,13 +28,7 @@
         <div class="card-header align-items-center d-flex">
           <%= link_to user_path(post.user), class: "no-underline" do %>
             <%= attachment_image_tag post.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %>
-            <strong><%= post.user.name %></strong>
-          <% end %>
-
-          <% if post.user == current_user %>
-            <%= link_to post_path(post), method: :delete, "data-confirm" => "OKを押すと投稿が削除されます。本当によろしいですか？", class: "ml-auto mx-0 my-auto" do %>
-              <div class="fas fa-trash-alt no-underline-danger"></div>
-            <% end %>
+            <strong class="h5 font-weight-bold"><%= post.user.name %></strong>
           <% end %>
         </div>
 

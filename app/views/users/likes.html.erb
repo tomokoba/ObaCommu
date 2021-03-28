@@ -4,26 +4,22 @@
   </div>
 </div>
 <% if @likes.present? %>
-  <!--<div class="row justify-content-center">-->
   <div class="card-deck mx-0 my-3">
-    <!--<div class="d-flex flex-wrap">-->
     <% @likes.each do |like| %>
-    <!--<div class="col-lg-3 mt-3 px-0">-->
       <% post = Post.find_by(id: like.post_id ) do %>
       <% end %>
-
       <div class="col-md-3 mb-4">
         <div class="card-wrap">
           <div class="card">
             <div class="card-header align-items-center d-flex">
               <%= link_to user_path(post.user), class: "no-underline" do %>
                 <%= attachment_image_tag post.user, :profile_image, fallback: "no-image.jpg", class: "profile_image_icon" %>
-                <strong><%= post.user.name %></strong>
+                <strong class="h5 font-weight-bold"><%= post.user.name %></strong>
               <% end %>
-
+              <!--投稿削除ボタン-->
               <% if post.user == current_user %>
                 <%= link_to post_path(post), method: :delete, "data-confirm" => "OKを押すと投稿が削除されます。本当によろしいですか？", class: "ml-auto mx-0 my-auto" do %>
-                  <div class="fas fa-trash-alt no-underline-danger"></div>
+                  <div class="fas fa-times no-underline-danger lead"></div>
                 <% end %>
               <% end %>
             </div>
@@ -34,7 +30,6 @@
               <% end %>
             <% end %>
             <div class="card-body">
-              <!--<div class="like-btn_<%#= post.id %>"><%#= render "likes/like-btn", post: post %></div>-->
               <div>
                 <strong class="like-btn_<%= post.id %>">
                   <%= render "likes/like-btn", post: post %>

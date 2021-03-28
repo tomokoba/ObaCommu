@@ -18,7 +18,7 @@ footer {
 
 .underline_link:hover {
   text-decoration: underline !important;
-  color: #057BFE;
+  color: #349e4e;
 }
 
 .no-underline {
@@ -32,13 +32,23 @@ footer {
   opacity: 0.8;
 }
 
-.no-underline-danger {
+.underline-danger {
   text-decoration: underline !important;
   color: #262626;
 }
 
-.no-underline-danger:hover {
+.underline-danger:hover {
   text-decoration: underline !important;
+  color: #DD3444;
+}
+
+.no-underline-danger {
+  text-decoration: none !important;
+  color: #262626;
+}
+
+.no-underline-danger:hover {
+  text-decoration: none !important;
   color: #DD3444;
 }
 
