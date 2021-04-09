@@ -27,5 +27,14 @@ describe '[STEP3] 仕上げのテスト' do
       click_link logout_link
       is_expected.to have_content 'ログアウトしました。'
     end
+    it 'ユーザのプロフィール情報更新成功時' do
+      visit new_user_session_path
+      fill_in 'user[email]', with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button 'ログインする'
+      visit edit_user_path(user)
+      click_button '編集を完了する'
+      is_expected.to have_content '会員情報を更新しました。'
+    end
   end
 end
