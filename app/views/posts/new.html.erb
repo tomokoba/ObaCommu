@@ -12,15 +12,15 @@
 
       <%= form_with model: @post, local: true do |f| %>
         <div class="form-group mb-4">
-          <%= f.label "タイトル", class: "font-weight-bold" %>（必須）</br>
+          <%= f.label "タイトル", class: "font-weight-bold" %>（必須）<br />
           <%= f.text_field :title, class: "form-control", placeholder: '例）ゴルフ' %>
         </div>
         <div class="form-group mb-4">
-          <%= f.label "画像", class: "font-weight-bold" %>（必須：最大5枚まで）</br>
+          <%= f.label "画像", class: "font-weight-bold" %>（必須：最大5枚まで）<br />
           <%= f.attachment_field :photos_images, multiple: true %>
         </div>
         <div class="form-group mb-4">
-          <%= f.label "本文", class: "font-weight-bold" %>（必須）</br>
+          <%= f.label "本文", class: "font-weight-bold" %>（必須）<br />
           <%= f.text_area :caption, class: "form-control js-text", rows: 6, placeholder: '例）ゴルフに行きました。天気が良くて気持ちがよかったです。' %>
           <p class="js-text-count text-right mt-1"></p>
         </div>

@@ -32,18 +32,18 @@
         </table>
 
         <div class="text-center mt-4">
-        <%= form_with model: @contact, local: true do |f| %>
-          <%= f.hidden_field :name %>
-          <%= f.hidden_field :email %>
-          <%= f.hidden_field :message %>
-          <%= f.submit '送信する', class: "btn btn-green w-100" %>
-        <% end %>
-        <%= form_with model: @contact, url: back_path, local: true do |f| %>
-          <%= f.hidden_field :name %>
-          <%= f.hidden_field :email %>
-          <%= f.hidden_field :message %>
-          <div class="mt-3">内容変更はこちら→ <%= f.submit '入力画面に戻る', class: "btn btn-link p-0" %></div>
-        <% end %>
+          <%= form_with model: @contact, local: true do |f| %>
+            <%= f.hidden_field :name %>
+            <%= f.hidden_field :email %>
+            <%= f.hidden_field :message %>
+            <%= f.submit '送信する', class: "btn btn-green w-100" %>
+          <% end %>
+          <%= form_with model: @contact, url: back_path, local: true do |f| %>
+            <%= f.hidden_field :name %>
+            <%= f.hidden_field :email %>
+            <%= f.hidden_field :message %>
+            <div class="mt-3">内容変更はこちら→ <%= f.submit '入力画面に戻る', class: "btn btn-link p-0" %></div>
+          <% end %>
         </div>
       </div>
 　  </div>
