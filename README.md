@@ -21,11 +21,11 @@
 - 新しい友達や趣味を見つけたい時
 
 ## 設計書
-[ER図](https://app.diagrams.net/#G1rkhr2KMJ8cvXDLhEnhJDBDkTC7QevU7g)
-[テーブル定義書](https://docs.google.com/spreadsheets/d/1zzJ7YFtFkOiQ1xLG3MYsiZ3uScmiT6soCdj0wTK7G3w/edit?usp=sharing)
-[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1KG7V1u2dzCHXVUeczE2qUVLGp2OpyEOO7Ukb8gIgELU/edit?usp=sharing)
-[AWS構成図](https://drive.google.com/file/d/1b2lCT7401nRS-C5YKY_epx2D5Wz56JdJ/view?usp=sharing)
-[AWSインフラ設計書](https://docs.google.com/spreadsheets/d/14MHY0kAWCqlTwooYKDDX9rzficMeUUHusWGyITThTgo/edit?usp=sharing)
+- [ER図](https://app.diagrams.net/#G1rkhr2KMJ8cvXDLhEnhJDBDkTC7QevU7g)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1zzJ7YFtFkOiQ1xLG3MYsiZ3uScmiT6soCdj0wTK7G3w/edit?usp=sharing)
+- [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1KG7V1u2dzCHXVUeczE2qUVLGp2OpyEOO7Ukb8gIgELU/edit?usp=sharing)
+- [AWS構成図](https://drive.google.com/file/d/1b2lCT7401nRS-C5YKY_epx2D5Wz56JdJ/view?usp=sharing)
+- [AWSインフラ設計書](https://docs.google.com/spreadsheets/d/14MHY0kAWCqlTwooYKDDX9rzficMeUUHusWGyITThTgo/edit?usp=sharing)
 
 ## 機能一覧
 [チャレンジ要素一覧はこちら](https://docs.google.com/spreadsheets/d/1Q-JlKbAaE3wZQTrAByrOE_lCGELuN4EkS-8xVpNynds/edit?usp=sharing)
