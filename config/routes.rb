@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'chats/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -33,6 +32,7 @@ Rails.application.routes.draw do
 
   get 'chat/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
+
   resources :contacts, only: [:new, :create] do
     collection do
       get 'confirm', to: 'contacts#error'
