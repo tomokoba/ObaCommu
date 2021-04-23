@@ -33,10 +33,12 @@ Rails.application.routes.draw do
 
   get 'chat/:id', to: 'chats#show', as: 'chat'
   resources :chats, only: [:create]
-
-  resources :contacts, only: [:new, :create]
-  get 'contacts/confirm', to: 'contacts#error'
-  post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
-  get 'contacts/back', to: 'contacts#error'
-  post 'contacts/back', to: 'contacts#back', as: 'back'
+  resources :contacts, only: [:new, :create] do
+    collection do
+      get 'confirm', to: 'contacts#error'
+      post 'confirm'
+      get 'back', to: 'contacts#error'
+      post 'back'
+    end
+  end
 end

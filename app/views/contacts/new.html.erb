@@ -16,7 +16,7 @@
           お間違えのないようにご入力ください。
         </p>
       </div>
-      <%= form_with model: @contact, url: confirm_path, local:true do |f| %>
+      <%= form_with model: @contact, url: confirm_contacts_path, local:true do |f| %>
 
         <%= render "contacts/errors", contact: @contact %>
 

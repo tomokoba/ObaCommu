@@ -17,6 +17,7 @@ class ContactsController < ApplicationController
     render :new
   end
 
+  # ブラウザバック時のエラー対応用
   def error
     redirect_to new_contact_path
   end
